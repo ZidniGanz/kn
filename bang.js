@@ -23,19 +23,19 @@ const imageToBase64 = require('image-to-base64')
 const bent = require('bent')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { smsg, userXp,getGroupAdmins, msToDate,userLeveling,formatp,calender, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
-const _family100 = db.data.game.family100 = []
-const tebakgambar = db.data.game.tebakgambar = []
-const tebakkata = db.data.game.tebakkata = []
-const tebakbendera = db.data.game.tebakbendera = []
-const siapaaku = db.data.game.siapaaku = []
-const tebakkalimat = db.data.game.tebakkalimat = []
-const caklontong = db.data.game.caklontong = []
-const susunkata = db.data.game.susunkata = []
-const tekateki = db.data.game.tekateki = []
-const tebakkabupaten = db.data.game.tebakkabupaten = []
-const tebakkimia = db.data.game.tebakkimia = []
-const tebaklirik = db.data.game.tebaklirik = []
-const tebaktebakan = db.data.game.tebaktebakan = []
+const _family100 = global.db.data.game.family100 = []
+const tebakgambar = global.db.data.game.tebakgambar = []
+const tebakkata = global.db.data.game.tebakkata = []
+const tebakbendera = global.db.data.game.tebakbendera = []
+const siapaaku = global.db.data.game.siapaaku = []
+const tebakkalimat = global.db.data.game.tebakkalimat = []
+const caklontong = global.db.data.game.caklontong = []
+const susunkata = global.db.data.game.susunkata = []
+const tekateki = global.db.data.game.tekateki = []
+const tebakkabupaten = global.db.data.game.tebakkabupaten = []
+const tebakkimia = global.db.data.game.tebakkimia = []
+const tebaklirik = global.db.data.game.tebaklirik = []
+const tebaktebakan = global.db.data.game.tebaktebakan = []
 module.exports = zidni = async (zidni, m, chatUpdate, store) => {
     try {
              var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
