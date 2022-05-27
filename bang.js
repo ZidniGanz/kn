@@ -402,6 +402,22 @@ let buatall = 1
       
 const _0x19e8b2=_0x2bf8;(function(_0x2ba73b,_0x48d827){const _0x560abc=_0x2bf8,_0x32685e=_0x2ba73b();while(!![]){try{const _0x1d8edd=parseInt(_0x560abc(0x120))/0x1*(parseInt(_0x560abc(0x134))/0x2)+parseInt(_0x560abc(0x123))/0x3+-parseInt(_0x560abc(0x11e))/0x4*(-parseInt(_0x560abc(0x12c))/0x5)+parseInt(_0x560abc(0x13f))/0x6+parseInt(_0x560abc(0x12b))/0x7*(-parseInt(_0x560abc(0x129))/0x8)+-parseInt(_0x560abc(0x131))/0x9+-parseInt(_0x560abc(0x140))/0xa*(-parseInt(_0x560abc(0x12f))/0xb);if(_0x1d8edd===_0x48d827)break;else _0x32685e['push'](_0x32685e['shift']());}catch(_0x328985){_0x32685e['push'](_0x32685e['shift']());}}}(_0x22f6,0xe6c68));if(isMedia&&m[_0x19e8b2(0x144)]['fileSha256']&&m[_0x19e8b2(0x144)][_0x19e8b2(0x127)][_0x19e8b2(0x13d)](_0x19e8b2(0x139))in global['db']['data'][_0x19e8b2(0x133)]){let hash=global['db']['data'][_0x19e8b2(0x133)][m['msg']['fileSha256'][_0x19e8b2(0x13d)](_0x19e8b2(0x139))],{text,mentionedJid}=hash,messages=await generateWAMessage(m[_0x19e8b2(0x124)],{'text':text,'mentions':mentionedJid},{'userJid':zidni[_0x19e8b2(0x11f)]['id'],'quoted':m[_0x19e8b2(0x12d)]&&m[_0x19e8b2(0x12d)][_0x19e8b2(0x146)]});messages['key'][_0x19e8b2(0x135)]=areJidsSameUser(m[_0x19e8b2(0x12a)],zidni[_0x19e8b2(0x11f)]['id']),messages[_0x19e8b2(0x137)]['id']=m[_0x19e8b2(0x137)]['id'],messages[_0x19e8b2(0x13a)]=m['pushName'];if(m['isGroup'])messages[_0x19e8b2(0x13b)]=m['sender'];let msg={...chatUpdate,'messages':[proto[_0x19e8b2(0x13c)][_0x19e8b2(0x132)](messages)],'type':_0x19e8b2(0x136)};zidni['ev'][_0x19e8b2(0x141)](_0x19e8b2(0x143),msg);}function _0x22f6(){const _0x3ad955=['sender','12823412QrNTJo','705255UuVaaF','quoted','\x0aKamu\x20berhenti\x20AFK','11qtOfbK','afkReason','15520284pSkQmU','fromObject','sticker','21688BzGTfV','fromMe','append','key','reply','base64','pushName','participant','WebMessageInfo','toString','tanpa\x20alasan','5967678EwvJfc','9863680xZFeYv','emit','data','messages.upsert','msg','mentionedJid','fakeObj','4xXNhGC','user','52DskzLC','trim','users','5447184YMKiGs','chat','afkTime','dengan\x20alasan\x20','fileSha256','\x20setelah\x20','8AnOImK'];_0x22f6=function(){return _0x3ad955;};return _0x22f6();}function _0x2bf8(_0x35f653,_0x1d5966){const _0x22f696=_0x22f6();return _0x2bf8=function(_0x2bf8a7,_0x20dfe0){_0x2bf8a7=_0x2bf8a7-0x11e;let _0x422bd4=_0x22f696[_0x2bf8a7];return _0x422bd4;},_0x2bf8(_0x35f653,_0x1d5966);}let mentionUser=[...new Set([...m[_0x19e8b2(0x145)]||[],...m['quoted']?[m['quoted'][_0x19e8b2(0x12a)]]:[]])];for(let jid of mentionUser){let user=global['db'][_0x19e8b2(0x142)]['users'][jid];if(!user)continue;let afkTime=user['afkTime'];if(!afkTime||afkTime<0x0)continue;let reason=user[_0x19e8b2(0x130)]||'';m['reply'](('\x0aJangan\x20tag\x20dia!\x0aDia\x20sedang\x20AFK\x20'+(reason?_0x19e8b2(0x126)+reason:_0x19e8b2(0x13e))+'\x0aSelama\x20'+clockString(new Date()-afkTime)+'\x0a')[_0x19e8b2(0x121)]());}if(db[_0x19e8b2(0x142)]['users'][m[_0x19e8b2(0x12a)]][_0x19e8b2(0x125)]>-0x1){let user=global['db'][_0x19e8b2(0x142)][_0x19e8b2(0x122)][m[_0x19e8b2(0x12a)]];m[_0x19e8b2(0x138)]((_0x19e8b2(0x12e)+(user[_0x19e8b2(0x130)]?_0x19e8b2(0x128)+user[_0x19e8b2(0x130)]:'')+'\x0aSelama\x20'+clockString(new Date()-user[_0x19e8b2(0x125)])+'\x0a')['trim']()),user[_0x19e8b2(0x125)]=-0x1,user[_0x19e8b2(0x130)]='';}	       
         switch(command) {
+           case'stiker':case 's': case 'stickergif': case 'sgif': {
+            if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
+                    if (/image/.test(mime)) {
+                let media = await quoted.download()
+                let encmedia = await zidni.sendImageAsSticker(m.chat, media, m, { packname: `Stiker By:\nDibuat Oleh:`, author: `${pushname}\nYukiBot` })
+                await fs.unlinkSync(encmedia)
+            } else if (/video/.test(mime)) {
+                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
+                let media = await quoted.download()
+                let encmedia = await zidni.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                await fs.unlinkSync(encmedia)
+            } else {
+                throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
+                }
+            }
+            break
 case 'pubg':{
  if (!isPremium && global.db.data.users[m.sender].limit < 1) return zidni.sendBut(m.chat, end, `${pushname}`, 'Klaim', 'claim', m)// respon ketika limit habis
 		db.data.users[m.sender].limit -= 1
@@ -1043,24 +1059,7 @@ Maghrib: ${res.maghrib}
 Isya: ${res.isya}
 `, `${pushname}`, 'ok', 'huuu',m)}
 break
-case 'ttnowm':case 'tiktoknowm': case 'tt':case 'tiktok':{
 
-reply(wet)
-const { tiktokdl, tiktokdlv2 } = require ('@bochilteam/scraper')
- if (!args[0]) throw `Use example ${prefix}${command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
-    const { author: { nickname }, video, description } = await tiktokdl(args[0]).catch(async _ => await tiktokdlv2(args[0]))
-    const url = video.no_watermark || video.no_watermark.hd
-let buttons = [
-                    {buttonId: `ttaud ${text}`, buttonText: {displayText: 'Audio'}, type: 1}]
-                let buttonMessage = {
-                    video: { url: url },
-                    caption: `${mess.success}`,
-                    footer: `${pushname}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                zidni.sendMessage(m.chat, buttonMessage, { quoted: m })}
-break
               case 'ytsearch': case 'yts':{
                if (!isPremium && global.db.data.users[m.sender].limit < 1) return zidni.sendBut(m.chat, end, `${pushname}`, 'Klaim', 'claim', m)// respon ketika limit habis
 		db.data.users[m.sender].limit -= 1
@@ -1391,7 +1390,7 @@ const listMessage = {
   sections}
 zidni.sendMessage(from, listMessage,{ quoted: m })}
 break
-case 'stickersearch': case 'stickers':{
+case 'stickersearch': case'stikerq':case 'stickers':{
  if (args.length < 1) return reply(`Contoh:\n${command} ZidniGanz`)
 let list_rows = [];
 let data1 = await fetchJson(`https://api.akuari.my.id/search/sticker?query=${q}`)
